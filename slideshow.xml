@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <slideshow>
-  <slide image="slides/slide1.jpg">Slide 1</slide>
-  <slide image="slides/slide2.jpg">Slide 2</slide>
-  <slide image="slides/slide3.jpg">Slide 3</slide>
-  <slide image="slides/slide4.jpg">Slide 3</slide>
+  <slide image="slides/slide1.jpeg">Slide 1</slide>
+  <slide image="slides/slide2.jpeg">Slide 2</slide>
+  <slide image="slides/slide3.jpeg">Slide 3</slide>
+  <slide image="slides/slide4.jpeg">Slide 3</slide>
 </slideshow>
