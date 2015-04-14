@@ -1,0 +1,17 @@
+body {
+  background-color: orange;
+}
+
+header {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+h1 {
+  text-align: center;
+}
+
+aside {
+  font-size: .8em;
+  opacity: .6;
+  float: right;
+}
