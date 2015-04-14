@@ -11,7 +11,7 @@ $(document).ready(function(){
    * 'https:' which means my Ajax calls have to be over https also. By doing what I do below, 
    * whatever protocol is being used by the user will also be used for the Ajax call.
    */
-  var endPoint = "//john-wisdom.codio.io:3000";
+  var endPoint = "//obscure-forest-2112.herokuapp.com/";
   
    /*
     * The following is a click event listener for the button element with the id button-one
