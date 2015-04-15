@@ -64,7 +64,7 @@ $(document).ready(function(){
   
 });
 
-function getUserMessages(){
+function getUserComments(){
   $.ajax({
     type: "GET",
     url: endpoint + "/api/userComments"
