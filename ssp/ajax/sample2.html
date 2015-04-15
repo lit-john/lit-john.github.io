@@ -9,7 +9,7 @@ To change this template use Tools | Templates.
     <link rel="stylesheet" href="css/custom.css"/>
     <!-- Not I have put my script tags at the bottom to help speed things up -->
 </head>
-<body>
+<body onload="getUserMessages()">
   <div class="container">
     <header>
       <div class="row">
@@ -38,12 +38,24 @@ To change this template use Tools | Templates.
 
     <div class="row">
       <div class="one-third column">
-        <button id="button-one">
-          Get a puzzle
-        </button>
+        <div id="user-comments"></div>
       </div>
       <div class="two-thirds column">
-        <div id="button-one-response"></div>
+        <button id="add-user-comment">
+          Add a comment
+        </button>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="one-third column">
+        <h3>User comments:</h3>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="sixteen columns">
+        <div id="user-comments"></div>
       </div>
     </div>
   </div>

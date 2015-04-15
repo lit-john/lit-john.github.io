@@ -1,10 +1,4 @@
-/* 
- * The following jQuery function gets called when the HTML DOM is ready to be inspected and manipulated
- * by javascript.
- */
-$(document).ready(function(){
-  
-  /*
+/*
    * I like to create a variable that holds the URL of the server that I am going to make the
    * Ajax calls to. If every I change server I just need to change this variable. Notice the 
    * URL doesn't start with 'http:' this is because the user may be viewing hthe web site on 
@@ -12,7 +6,12 @@ $(document).ready(function(){
    * whatever protocol is being used by the user will also be used for the Ajax call.
    */
   var endPoint = "//obscure-forest-2112.herokuapp.com";
-  
+
+ /* 
+ * The following jQuery function gets called when the HTML DOM is ready to be inspected and manipulated
+ * by javascript.
+ */
+$(document).ready(function(){ 
   
   /*
    * Ok, so the DOM is ready. I'm going to make an Ajax call to my Heroku app to "wake it up" so
@@ -46,6 +45,33 @@ $(document).ready(function(){
           console.log("Ajax fail: " + JSON.stringify(msg));
           $('#button-one-response').html('<div class="error">Oops we\'ve got an error: <pre>' + JSON.stringify(msg) + '</pre></div>');
         });
-       });
-
+      });
+  
+  $('button#add-user-comment').click(function(){
+    
+    $.ajax({
+      type: "POST",
+      data: "comment=Hello how are you",
+      url: endPoint + "/api/userComments"
+    }).done(function(response){
+       $('div#user-comments').html(response.message);
+    }).fail(function(msg){
+      console.log("Ajax fail for /api/userComments: " + JSON.stringify(msg));
+      $('div#user-comments').html('<div class="error">Oops we\'ve got an error: <pre>' + JSON.stringify(msg) + '</pre></div>');
+    });
+    
+  });
+  
 });
+
+function getUserMessages(){
+  $.ajax({
+    type: "GET",
+    url: endpoint + "/api/userComments"
+  }).done(function(response){
+    $('div#user-comments').html(response.message);
+  }).fail(function(msg){
+     console.log("Ajax fail for /api/getUserComments: " + JSON.stringify(msg));
+     $('div#user-comments').html('<div class="error">Oops we\'ve got an error: <pre>' + JSON.stringify(msg) + '</pre></div>');
+  });
+}
