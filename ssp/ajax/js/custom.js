@@ -69,6 +69,7 @@ function getUserMessages(){
     type: "GET",
     url: endpoint + "/api/userComments"
   }).done(function(response){
+    console.log("Got a response from Ajax call /api/userComments")
     $('div#user-comments').html(response.message);
   }).fail(function(msg){
      console.log("Ajax fail for /api/getUserComments: " + JSON.stringify(msg));
