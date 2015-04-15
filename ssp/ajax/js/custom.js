@@ -1,11 +1,11 @@
 /*
-   * I like to create a variable that holds the URL of the server that I am going to make the
-   * Ajax calls to. If every I change server I just need to change this variable. Notice the 
-   * URL doesn't start with 'http:' this is because the user may be viewing hthe web site on 
-   * 'https:' which means my Ajax calls have to be over https also. By doing what I do below, 
-   * whatever protocol is being used by the user will also be used for the Ajax call.
-   */
-  var endPoint = "//obscure-forest-2112.herokuapp.com";
+* I like to create a variable that holds the URL of the server that I am going to make the
+* Ajax calls to. If every I change server I just need to change this variable. Notice the 
+* URL doesn't start with 'http:' this is because the user may be viewing hthe web site on 
+* 'https:' which means my Ajax calls have to be over https also. By doing what I do below, 
+* whatever protocol is being used by the user will also be used for the Ajax call.
+*/
+var endPoint = "//obscure-forest-2112.herokuapp.com";
 
  /* 
  * The following jQuery function gets called when the HTML DOM is ready to be inspected and manipulated
@@ -67,7 +67,7 @@ $(document).ready(function(){
 function getUserComments(){
   $.ajax({
     type: "GET",
-    url: endpoint + "/api/userComments"
+    url: endPoint + "/api/userComments"
   }).done(function(response){
     console.log("Got a response from Ajax call /api/userComments")
     $('div#user-comments').html(response.message);
