@@ -6,12 +6,29 @@ header {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-h1 {
+
+header h1 {
   text-align: center;
 }
 
-aside {
+header aside {
   font-size: .8em;
   opacity: .6;
   float: right;
+}
+
+header nav {
+  padding: 5px;
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+header nav li {
+  display: inline;
+  margin-left: 10px;
 }

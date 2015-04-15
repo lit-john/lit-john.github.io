@@ -3,7 +3,7 @@
  * by javascript.
  */
 $(document).ready(function(){
- 
+  
   /*
    * I like to create a variable that holds the URL of the server that I am going to make the
    * Ajax calls to. If every I change server I just need to change this variable. Notice the 
@@ -12,6 +12,20 @@ $(document).ready(function(){
    * whatever protocol is being used by the user will also be used for the Ajax call.
    */
   var endPoint = "//obscure-forest-2112.herokuapp.com";
+  
+  
+  /*
+   * Ok, so the DOM is ready. I'm going to make an Ajax call to my Heroku app to "wake it up" so
+   * that when I make a "real" Ajax call the app will be awake and will respond quickly.
+   */
+  $.ajax({type: "GET", url:  endPoint + "/api/wakeup"}).done(function(response) {
+    // Don't really care what the response is, I just wanted to wake up te app
+    console.log("Node app message : " + response.message);
+  }).fail(function (msg) {
+    console.log("Ajax /wakeup fail: " + JSON.stringify(msg));
+  });
+  
+  
   
    /*
     * The following is a click event listener for the button element with the id button-one
