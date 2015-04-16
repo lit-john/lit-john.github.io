@@ -5,7 +5,8 @@
 * 'https:' which means my Ajax calls have to be over https also. By doing what I do below, 
 * whatever protocol is being used by the user will also be used for the Ajax call.
 */
-var endPoint = "//obscure-forest-2112.herokuapp.com";
+//var endPoint = "//obscure-forest-2112.herokuapp.com";
+var endPoint = "//sister-subject.codio.io:3000";
 
  /* 
  * The following jQuery function gets called when the HTML DOM is ready to be inspected and manipulated
@@ -48,13 +49,26 @@ $(document).ready(function(){
       });
   
   $('button#add-user-comment').click(function(){
+    console.log("Button add-user-comment clicked");
+    
+    var theComment = $('input#comment').val();
+    $('input#comment').val("");
     
     $.ajax({
       type: "POST",
-      data: "comment=Hello how are you",
+      data: "comment="+theComment,
       url: endPoint + "/api/userComments"
     }).done(function(response){
-       $('div#user-comments').html(response.message);
+       console.log("Received ajax response for POST /api/userComments " + response.comments)
+       
+       var arrayOfComments = response.comments;
+       var commentsHtml = "<ul class=\"comments\">";
+
+       for (var i=0; i < arrayOfComments.length; i++){
+         commentsHtml += "<li>"+arrayOfComments[i]+"</li>";
+       }
+      
+       $('div#user-comments').html(commentsHtml);
     }).fail(function(msg){
       console.log("Ajax fail for /api/userComments: " + JSON.stringify(msg));
       $('div#user-comments').html('<div class="error">Oops we\'ve got an error: <pre>' + JSON.stringify(msg) + '</pre></div>');
@@ -69,8 +83,16 @@ function getUserComments(){
     type: "GET",
     url: endPoint + "/api/userComments"
   }).done(function(response){
-    console.log("Got a response from Ajax call /api/userComments")
-    $('div#user-comments').html(response.message);
+    console.log("Got a response from Ajax call /api/userComments");
+    
+    var arrayOfComments = response.comments;
+    var commentsHtml = "<ul class=\"comments\">";
+    
+    for (var i=0; i < arrayOfComments.length; i++){
+      commentsHtml += "<li>"+arrayOfComments[i]+"</li>";
+    }
+    
+    $('div#user-comments').html(commentsHtml);
   }).fail(function(msg){
      console.log("Ajax fail for /api/getUserComments: " + JSON.stringify(msg));
      $('div#user-comments').html('<div class="error">Oops we\'ve got an error: <pre>' + JSON.stringify(msg) + '</pre></div>');
