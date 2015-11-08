@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <slideshow>
-  <slide image="slide1.jpg">Caption for Slide 1</slide>
+  <slide image="slide1.jpg">A Processing generated graphic</slide>
   <slide image="slide2.jpg">Caption for Slide 2</slide>
-  <slide image="slide3.jpg">Caption for Slide 3</slide>
-  <slide image="slide4.jpg">Caption for Slide 3</slide>
+  <slide image="slide3.jpg">A baseball</slide>
+  <slide image="slide4.jpg">A red chair</slide>
 </slideshow>
